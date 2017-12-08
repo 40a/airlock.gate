@@ -25,6 +25,7 @@ class EventSender {
     }
 
     void send(EventGroup eventGroup) {
+        Log.info("Send event group. Size=" + eventGroup.eventRecords.size() + ", key=" + eventGroup.eventRoutingKey);
         for (EventRecord record : eventGroup.eventRecords) {
             ProducerRecord pr = new ProducerRecord<>(
                     eventGroup.eventRoutingKey,
